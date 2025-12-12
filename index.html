@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Retro pixel art claw machine game - Catch the toys!"
+    />
+    <meta
+      name="keywords"
+      content="claw machine, arcade game, pixel art, retro game"
+    />
+    <meta name="author" content="GitHub Bootcamp" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Claw Machine Game" />
+    <meta
+      property="og:description"
+      content="Retro pixel art claw machine arcade game"
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Claw Machine Game</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/background.css" />
+    <link rel="stylesheet" href="css/victory.css" />
+  </head>
+  <body>
+    <!-- Arcade Studio Background -->
+    <div class="arcade-scene" aria-hidden="true">
+      <div class="floor-perspective"></div>
+
+      <!-- The Mascot Cat -->
+      <div class="cat-mascot"></div>
+
+      <!-- Background Crowd -->
+      <div class="bg-crowd">
+        <div class="person p1"></div>
+        <div class="person p2"></div>
+        <div class="person p3"></div>
+      </div>
+    </div>
+
+    <!-- Game Container -->
+    <main class="wrapper" role="main" aria-label="Claw Machine Game">
+      <!-- Collection Box - Collected toys appear here -->
+      <section class="collection-box pix" aria-label="Collected Toys"></section>
+
+      <!-- Main Claw Machine -->
+      <article class="claw-machine" aria-label="Claw Machine">
+        <!-- Game Area -->
+        <div class="box pix">
+          <!-- Upper Section - Claw mechanism -->
+          <div class="machine-top pix">
+            <div class="arm-joint pix">
+              <div class="arm pix">
+                <div class="claws pix"></div>
+              </div>
+            </div>
+            <div class="rail vert pix"></div>
+            <div class="rail hori pix"></div>
+          </div>
+
+          <!-- Lower Section - Toys area -->
+          <div class="machine-bottom pix">
+            <div class="collection-point pix"></div>
+          </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control pix" role="group" aria-label="Game Controls">
+          <div class="cover left"></div>
+
+          <!-- Horizontal Movement Button -->
+          <button
+            class="hori-btn pix"
+            aria-label="Move claw horizontally - Hold to move right"
+            title="Hold to move right"
+          ></button>
+
+          <!-- Vertical Movement Button -->
+          <button
+            class="vert-btn pix"
+            aria-label="Lower claw - Hold to move up, release to grab"
+            title="Hold to move up, release to grab"
+          ></button>
+
+          <div class="cover right">
+            <div class="instruction pix"></div>
+          </div>
+          <div class="cover bottom"></div>
+          <div class="cover top">
+            <div class="collection-arrow pix"></div>
+          </div>
+          <div class="collection-point pix"></div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Victory Screen -->
+    <div class="victory-overlay" id="victoryScreen" aria-hidden="true">
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="victory-modal">
+        <div class="victory-content">
+          <h1 class="victory-title">🎉 Congratulations! 🎉</h1>
+          <p class="victory-message">You collected all the toys!</p>
+          <button class="restart-btn" id="restartBtn">🔄 Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sign">
+      Created by
+      <a
+        href="https://serkanbayraktar.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Serkanby</a
+      >
+      |
+      <a
+        href="https://github.com/Serkanbyx"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Github</a
+      >
+    </footer>
+
+    <!-- Game Scripts -->
+    <script src="js/victory.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

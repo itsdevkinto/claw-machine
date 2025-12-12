@@ -1,0 +1,143 @@
+/**
+ * Claw Machine Game - Background Effects
+ * Theme: Retro Arcade Studio
+ */
+
+/* ============================================
+   SCENE CONTAINER
+   ============================================ */
+.arcade-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #1a1025;
+  perspective: 800px;
+}
+
+/* ============================================
+   FLOOR & WALLS
+   ============================================ */
+.floor-perspective {
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 45%;
+  background: 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,0.03) 2px, transparent 2px);
+  background-size: 60px 60px;
+  transform-origin: bottom center;
+  transform: rotateX(60deg);
+  box-shadow: inset 0 0 150px #000;
+}
+
+/* ============================================
+   ORIGINAL PIXEL ART CAT (SVG Data URI)
+   ============================================ */
+.cat-mascot {
+  position: absolute;
+  bottom: 18%; /* Adjusted to stand on the floor */
+  right: 15%;
+  width: 60px;
+  height: 60px;
+  z-index: 5;
+  /* The Classic Blocky Cat */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath fill='%23FFA500' d='M5 10 h5 v5 h-5 z M20 10 h5 v5 h-5 z M5 15 h20 v15 h-20 z'/%3E%3Cpath fill='%23000' d='M8 18 h4 v4 h-4 z M18 18 h4 v4 h-4 z'/%3E%3Cpath fill='%23FFF' d='M13 22 h4 v4 h-4 z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: catBounce 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  transform: scaleX(-1); /* Face left towards the game */
+}
+
+.cat-mascot::after { /* Tail */
+  content: '';
+  position: absolute;
+  right: -5px;
+  bottom: 5px;
+  width: 10px;
+  height: 20px;
+  border-right: 4px solid #FFA500;
+  border-bottom: 4px solid #FFA500;
+  transform-origin: bottom left;
+  animation: tailWag 2s ease-in-out infinite alternate;
+}
+
+@keyframes catBounce {
+  0%, 100% { transform: translateY(0) scaleX(-1); }
+  50% { transform: translateY(-5px) scaleX(-1); }
+}
+
+@keyframes tailWag {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(20deg); }
+}
+
+/* ============================================
+   BACKGROUND CROWD
+   ============================================ */
+.bg-crowd {
+  position: absolute;
+  bottom: 35%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: -2;
+  display: flex;
+  justify-content: center;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.person {
+  width: 30px;
+  height: 60px;
+  background-color: #111;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  margin: 0 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.person::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #111;
+  border-radius: 50%;
+}
+
+.p1 { transform: scale(0.8); animation: sway 4s infinite ease-in-out; }
+.p2 { transform: scale(0.9); animation: sway 5s infinite ease-in-out reverse; }
+.p3 { transform: scale(0.8); animation: sway 4.5s infinite ease-in-out 1s; }
+
+@keyframes sway {
+  0% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(2px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .cat-mascot {
+    width: 40px;
+    height: 40px;
+    right: 5%;
+    bottom: 20%;
+  }
+  
+  .floor-perspective {
+    height: 50%;
+  }
+}

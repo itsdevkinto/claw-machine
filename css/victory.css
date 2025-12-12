@@ -1,0 +1,198 @@
+/**
+ * Victory Screen Styles
+ * 
+ * Victory modal, confetti animations, and celebration effects
+ * for when player collects all toys
+ */
+
+/* ============================================
+   VICTORY SCREEN
+   ============================================ */
+.victory-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.victory-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.victory-modal {
+  background: linear-gradient(135deg, #FACE68 0%, #FAAC68 100%);
+  padding: 60px 80px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.7);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  z-index: 2001;
+  border: 6px solid #5A9CB5;
+  pointer-events: auto;
+}
+
+.victory-overlay.show .victory-modal {
+  transform: scale(1);
+}
+
+.victory-content {
+  position: relative;
+  z-index: 2002;
+  pointer-events: auto;
+}
+
+.victory-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 20px 0;
+  text-shadow: 3px 3px 0 #FA6868, 6px 6px 0 rgba(0, 0, 0, 0.2);
+  animation: victoryPulse 1.5s ease-in-out infinite;
+}
+
+.victory-message {
+  font-size: 28px;
+  color: #fff;
+  margin: 0 0 40px 0;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.restart-btn {
+  background: #3498DB !important;
+  background-image: none !important;
+  color: #fff;
+  border: none;
+  padding: 18px 48px;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2002;
+  pointer-events: auto;
+  filter: none !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+}
+
+.restart-btn:hover {
+  background: #5DADE2 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(52, 152, 219, 0.7);
+  filter: none !important;
+}
+
+.restart-btn:active {
+  transform: translateY(-1px);
+}
+
+@keyframes victoryPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ============================================
+   CONFETTI ANIMATION
+   ============================================ */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #FACE68;
+  top: -10px;
+  opacity: 0;
+  animation: confettiFall linear forwards;
+}
+
+.confetti:nth-child(odd) {
+  background: #5A9CB5;
+}
+
+.confetti:nth-child(3n) {
+  background: #FA6868;
+}
+
+.confetti:nth-child(4n) {
+  background: #FAAC68;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Victory Screen
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .victory-modal {
+    padding: 40px 50px;
+  }
+  
+  .victory-title {
+    font-size: 42px;
+  }
+  
+  .victory-message {
+    font-size: 20px;
+  }
+  
+  .restart-btn {
+    padding: 14px 36px;
+    font-size: 18px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .victory-modal {
+    transition: none;
+  }
+  
+  .victory-title {
+    animation: none;
+  }
+  
+  .confetti {
+    animation: none;
+  }
+}
