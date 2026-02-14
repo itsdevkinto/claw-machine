@@ -13,11 +13,11 @@
   --color-background: #84dfe2;
   --color-brown: #57280f;
   --color-blue: #5A9CB5;      /* Turkuaz - Details & Rails */
-  --color-dark-blue: #FAAC68; /* Orange - Control Panel */
-  --color-machine: #FACE68;   /* Light Yellow - Main Body */
+  --color-dark-blue: #4a90e2; /* Orange - Control Panel */
+  --color-machine: #ffffff;   /* Light Yellow - Main Body */
   --color-glass: #7fcfed;
   --color-glass-overlay: #70f7f372;
-  --color-toys-area: #fff8e1; /* Pale Cream */
+  --color-toys-area: #3b3939; /* Pale Cream */
   
   /* Machine Dimensions */
   --machine-width: 160px;
@@ -245,7 +245,7 @@ body {
   --h: 24px;
   z-index: 0;
   /* Apply color filter to match theme */
-  filter: hue-rotate(170deg) saturate(1.2) brightness(1.1);
+  filter: hue-rotate(0deg) saturate(2) brightness(1.2);
 }
 
 /* ============================================
@@ -677,6 +677,20 @@ button:active {
 
 .toy-wrapper .toy.robot::after {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAYAAAAIXrg4AAAAAXNSR0IArs4c6QAAAPlJREFUSEtjZMADwjX4/+OTh8mtvPGREZc6nBIgw1dc/0CM+QwRmgIMuCwBW0CsS4myDUkRyFJGkOFFtRWk6iVKfV9zB8OoBXiDamCCCGQrCJAa8dj0YfXBqAXIQUtUJIMU4YoPfHKgeCTKAphCbOmRUEIg2gKiygUsiuhjAc1LU5jPqFmqgoIGVj/AKxyaWgCrcGCpwiyKvPrh1DJIMQMrDeAVDqhqBFV71LQAZia4whm1AJYSkeMAHkTI+YCacQAyFxzJwyMfwIKJUOlIbKFH/5yMHA/EuhKfOuR2KkbjF1ejF7mBS4wamAOwtq6xNYbRW8/EqAFZAgDgjP1+jrGWQwAAAABJRU5ErkJggg==);
+}
+
+.toy.roses::after {
+  --w: 38px;
+  --h: 44px;
+  background-image: url(../images/Roses-1.png);
+}
+
+.toy.roses.grabbed::after {
+  background-image: url(../images/Roses-2.png);
+}
+
+.toy-wrapper .toy.roses::after {
+  background-image: url(../images/Roses-3.png);
 }
 
 /* ============================================

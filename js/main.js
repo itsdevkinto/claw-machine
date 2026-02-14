@@ -66,6 +66,7 @@ const toyTypes = {
   cucumber: { w: 16 * CONFIG.SCALE, h: 28 * CONFIG.SCALE },
   penguin: { w: 24 * CONFIG.SCALE, h: 22 * CONFIG.SCALE },
   robot: { w: 20 * CONFIG.SCALE, h: 30 * CONFIG.SCALE },
+  roses: { w: 20 * CONFIG.SCALE, h: 30 * CONFIG.SCALE },
 };
 
 // Shuffle toys for random placement
